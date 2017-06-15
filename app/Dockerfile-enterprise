@@ -19,7 +19,7 @@ RUN mkdir -p /mattermost/data \
     && rm -rf /mattermost/config/config.json
 
 # Configure entrypoint
-COPY docker-entry.sh /
+ADD https://raw.githubusercontent.com/Alustrat/structure_mattermost/master/app/docker-entry.sh /
 # Set permission (TODO should be removed and replace by a chmod on the file in the repository ?)
 RUN chmod +x /docker-entry.sh
 ENTRYPOINT ["/docker-entry.sh"]

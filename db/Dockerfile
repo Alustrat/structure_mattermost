@@ -9,8 +9,8 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY setup-wale.sh /docker-entrypoint-initdb.d/
-COPY docker-entrypoint1.sh /
+ADD https://raw.githubusercontent.com/Alustrat/structure_mattermost/master/db/setup-wale.sh /docker-entrypoint-initdb.d/
+ADD https://raw.githubusercontent.com/Alustrat/structure_mattermost/master/db/docker-entrypoint1.sh /
 RUN chmod +x /docker-entrypoint1.sh
 
 ENTRYPOINT ["/docker-entrypoint1.sh"]
